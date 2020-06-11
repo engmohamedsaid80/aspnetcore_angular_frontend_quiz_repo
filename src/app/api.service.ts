@@ -19,9 +19,7 @@ export class ApiService {
   }
 
   postQuestionToBE(question) {
-    this.httpBE.post('http://localhost:61925/api/questions', question).subscribe(beResponse => {
-      console.log(beResponse);
-    })
+    return this.httpBE.post('http://localhost:61925/api/questions', question);
   }
 
   putQuestionToBE(question) {
