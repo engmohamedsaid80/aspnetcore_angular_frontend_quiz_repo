@@ -21,8 +21,8 @@ export class ApiService {
     this.selectedQuiz.next(quiz);
   }
 
-  getQuestionsFromBE() {
-    return this.httpBE.get('http://localhost:61925/api/questions');
+  getQuestionsFromBE(quizId) {
+    return this.httpBE.get(`http://localhost:61925/api/questions/${quizId}`);
   }
 
   getQuizzesFromBE() {
@@ -30,20 +30,18 @@ export class ApiService {
   }
 
   postQuestionToBE(question) {
-    this.httpBE.post('http://localhost:61925/api/questions', question).subscribe(beResponse => {
-      console.log(beResponse);
-    })
+    return this.httpBE.post('http://localhost:61925/api/questions', question);
   }
 
   postQuizToBE(quiz) {
-    this.httpBE.post('http://localhost:61925/api/quizzes', quiz).subscribe(beResponse => {
-      console.log('response from Be: ' + beResponse);
-    })
+    return this.httpBE.post('http://localhost:61925/api/quizzes', quiz);
+  }
+
+  putQuizToBE(quiz) {
+    return this.httpBE.put('http://localhost:61925/api/quizzes', quiz);
   }
 
   putQuestionToBE(question) {
-    this.httpBE.put('http://localhost:61925/api/questions', question).subscribe(beResponse => {
-      console.log(beResponse);
-    })
+    return this.httpBE.put('http://localhost:61925/api/questions', question);
   }
 }

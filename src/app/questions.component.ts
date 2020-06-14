@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from './api.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'questions',
@@ -17,10 +18,11 @@ export class QuestionsComponent {
 
   questions = {};
 
-  constructor(public api: ApiService) { }
+  constructor(public api: ApiService, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.api.getQuestionsFromBE().subscribe(res => {
+    var quizId = this.route.snapshot.paramMap.get('quizId');
+    this.api.getQuestionsFromBE(quizId).subscribe(res => {
       this.questions = res
     });
   }

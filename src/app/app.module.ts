@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
@@ -25,8 +26,7 @@ import { HomeComponent } from './home.component';
 const routes = [
   { path: '', component: HomeComponent },
   { path: 'quiz', component: QuizComponent },
-  { path: 'question', component: QuestionComponent },
-  { path: 'questions', component: QuestionListComponent }
+  { path: 'questions/:quizId', component: QuestionListComponent }
 ];
 
 @NgModule({
@@ -48,7 +48,8 @@ const routes = [
     MatInputModule,
     MatCardModule,
     MatListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatSnackBarModule
   ],
   providers: [
     ApiService

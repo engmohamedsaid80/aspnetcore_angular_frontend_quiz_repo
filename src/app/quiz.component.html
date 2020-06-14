@@ -14,8 +14,9 @@
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button (click)="api.putQuizToBE(quiz)" mat-button *ngIf="quiz.id">SAVE</button>
+    <button (click)="putQuiz(quiz)" mat-button *ngIf="quiz.id">SAVE</button>
     <button (click)="clearQuiz()" mat-button *ngIf="quiz.id">NEW</button>
-    <button (click)="api.postQuizToBE(quiz)" mat-button *ngIf="!quiz.id">POST</button>
+    <button [routerLink]="['/questions', 1]" mat-button *ngIf="quiz.id">EDIT QUESTIONS</button>
+    <button (click)="postQuiz(quiz)" mat-button *ngIf="!quiz.id">POST</button>
   </mat-card-actions>
 </mat-card>

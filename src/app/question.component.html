@@ -31,8 +31,8 @@
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button (click)="api.putQuestionToBE(question)" mat-button *ngIf="question.id">SAVE</button>
+    <button (click)="putQuestion(question)" mat-button *ngIf="question.id">SAVE</button>
     <button (click)="clearQuestion()" mat-button *ngIf="question.id">NEW</button>
-    <button (click)="api.postQuestionToBE(question)" mat-button *ngIf="!question.id">POST</button>
+    <button (click)="postQuestion(question)" mat-button *ngIf="!question.id">POST</button>
   </mat-card-actions>
 </mat-card>
