@@ -23,8 +23,6 @@ export class ApiService {
   }
 
   putQuestionToBE(question) {
-    this.httpBE.put('http://localhost:61925/api/questions', question).subscribe(beResponse => {
-      console.log(beResponse);
-    })
+    return this.httpBE.put('http://localhost:61925/api/questions', question);
   }
 }

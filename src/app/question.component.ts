@@ -38,7 +38,15 @@ export class QuestionComponent {
   }
 
   putQuestion(question) {
-    this.api.putQuestionToBE(question);
+    this.api.putQuestionToBE(question).subscribe(res => {
+      if (res) {
+        this.snackBar.open("Question saved", "", {
+          duration: 2000,
+        });
+
+        this.question = {};
+      }
+    });
   }
 
   clearQuestion() {
