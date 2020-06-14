@@ -14,21 +14,28 @@ import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home.component';
+import { QuestionListComponent } from './questionlist.component';
 import { QuestionComponent } from './question.component';
 import { QuestionsComponent } from './questions.component';
 import { ApiService } from './api.service';
 import { NavComponent } from './nav.component';
+import { QuizComponent } from './quiz.component';
+import { QuizzesComponent } from './quizzes.component';
+import { HomeComponent } from './home.component';
 
 const routes = [
   { path: '', component: HomeComponent },
-  { path: 'question', component: QuestionComponent },
-  { path: 'questions', component: QuestionsComponent }
+  { path: 'quiz', component: QuizComponent },
+  { path: 'questions/:quizId', component: QuestionListComponent }
 ];
 
 @NgModule({
   declarations: [
-    AppComponent, QuestionComponent, QuestionsComponent, HomeComponent, NavComponent
+    AppComponent,
+    QuestionComponent, QuestionsComponent, QuestionListComponent,
+    NavComponent,
+    QuizComponent, QuizzesComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

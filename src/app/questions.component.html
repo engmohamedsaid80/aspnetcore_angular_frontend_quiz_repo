@@ -6,7 +6,6 @@
     <mat-list role="list" *ngFor="let q of questions">
       <mat-list-item role="listitem" class="click-link" (click)="displayQuestion(q)">{{q.questionText}}</mat-list-item>
     </mat-list>
-    <mat-label>You selected {{selectedQ.questionText}}</mat-label>
   </mat-card-content>
   <mat-card-actions>
 
