@@ -9,30 +9,30 @@
     <form>
       <mat-form-field class="full-width">
         <mat-label>Question</mat-label>
-        <input name="question" [(ngModel)]="question.QuestionText" matInput placeholder="Question" />
+        <input name="question" [(ngModel)]="question.questionText" matInput placeholder="Question" />
       </mat-form-field>
       <mat-form-field class="full-width">
         <mat-label>Correct Answer</mat-label>
-        <input name="txtCorrectAnswer" [(ngModel)]="question.CorrectAnswer" matInput placeholder="Correct Answer" />
+        <input name="txtCorrectAnswer" [(ngModel)]="question.correctAnswer" matInput placeholder="Correct Answer" />
       </mat-form-field>
       <mat-form-field class="full-width">
         <mat-label>Wrong Answer 1</mat-label>
-        <input name="txtWrongAnswer1" [(ngModel)]="question.WrongAnswer1" matInput placeholder="Wrong Answer 1" />
+        <input name="txtWrongAnswer1" [(ngModel)]="question.wrongAnswer1" matInput placeholder="Wrong Answer 1" />
       </mat-form-field>
       <mat-form-field class="full-width">
         <mat-label>Wrong Answer 2</mat-label>
-        <input name="txtWrongAnswer2" [(ngModel)]="question.WrongAnswer2" matInput placeholder="Wrong Answer 2" />
+        <input name="txtWrongAnswer2" [(ngModel)]="question.wrongAnswer2" matInput placeholder="Wrong Answer 2" />
       </mat-form-field>
       <mat-form-field class="full-width">
         <mat-label>Wrong Answer 3</mat-label>
-        <input name="txtWrongAnswer3" [(ngModel)]="question.WrongAnswer3" matInput placeholder="Wrong Answer 3" />
+        <input name="txtWrongAnswer3" [(ngModel)]="question.wrongAnswer3" matInput placeholder="Wrong Answer 3" />
       </mat-form-field>
 
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button (click)="putQuestion(question)" mat-button *ngIf="question.id">SAVE</button>
+    <button (click)="api.putQuestionToBE(question)" mat-button *ngIf="question.id">SAVE</button>
     <button (click)="clearQuestion()" mat-button *ngIf="question.id">NEW</button>
-    <button (click)="postQuestion(question)" mat-button *ngIf="!question.id">POST</button>
+    <button (click)="api.postQuestionToBE(question)" mat-button *ngIf="!question.id">POST</button>
   </mat-card-actions>
 </mat-card>

@@ -15,14 +15,6 @@ export class QuestionComponent {
     this.api.questionSelected.subscribe(q => this.question = q);
   }
 
-  postQuestion(question) {
-    this.api.postQuestionToBE(question);
-  }
-
-  putQuestion(question) {
-    this.api.putQuestionToBE(question);
-  }
-
   clearQuestion() {
     this.question = {};
   }

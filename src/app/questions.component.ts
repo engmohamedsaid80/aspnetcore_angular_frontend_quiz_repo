@@ -15,8 +15,6 @@ export class QuestionsComponent {
     WrongAnswer3: ""
   };
 
-  selectedQ = {};
-
   questions = {};
 
   constructor(public api: ApiService) { }
@@ -28,6 +26,6 @@ export class QuestionsComponent {
   }
 
   displayQuestion(question) {
-    this.selectedQ = question;
+    this.api.selectQuestion(question);
   }
 }
