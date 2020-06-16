@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -24,6 +24,7 @@ import { QuizComponent } from './quiz.component';
 import { QuizzesComponent } from './quizzes.component';
 import { HomeComponent } from './home.component';
 import { RegisterComponent } from './register.component';
+import { AuthInterceptor } from './auth.interceptor';
 
 const routes = [
   { path: '', component: HomeComponent },
@@ -57,7 +58,12 @@ const routes = [
     MatSnackBarModule
   ],
   providers: [
-    ApiService, AuthService
+    ApiService, AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
