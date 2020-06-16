@@ -41,20 +41,12 @@ export class QuestionComponent {
   putQuestion(question) {
     this.api.putQuestionToBE(question).subscribe(res => {
       if (res) {
-<<<<<<< HEAD
-=======
-
->>>>>>> 9d528b86c3efb4e0f625214521ddd4ec4213b5ef
         this.snackBar.open("Question saved", "", {
           duration: 2000,
         });
 
         this.question = {};
       }
-<<<<<<< HEAD
-=======
-
->>>>>>> 9d528b86c3efb4e0f625214521ddd4ec4213b5ef
     });
   }
 

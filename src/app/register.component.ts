@@ -15,8 +15,4 @@ export class RegisterComponent {
       password: ['', Validators.required]
     })
   }
-
-  register() {
-    console.log(this.regForm);
-  }
 }

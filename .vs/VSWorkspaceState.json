@@ -4,10 +4,6 @@
     "\\src",
     "\\src\\app"
   ],
-<<<<<<< HEAD
-  "SelectedNode": "\\src\\app\\api.service.ts",
-=======
-  "SelectedNode": "\\src\\app\\questions.component.ts",
->>>>>>> 9d528b86c3efb4e0f625214521ddd4ec4213b5ef
+  "SelectedNode": "\\src\\app\\nav.component.html",
   "PreviewInSolutionExplorer": false
 }
