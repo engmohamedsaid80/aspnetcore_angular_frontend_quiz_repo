@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -8,7 +8,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 
@@ -18,15 +18,19 @@ import { QuestionListComponent } from './questionlist.component';
 import { QuestionComponent } from './question.component';
 import { QuestionsComponent } from './questions.component';
 import { ApiService } from './api.service';
+import { AuthService } from './auth.service';
 import { NavComponent } from './nav.component';
 import { QuizComponent } from './quiz.component';
 import { QuizzesComponent } from './quizzes.component';
 import { HomeComponent } from './home.component';
+import { RegisterComponent } from './register.component';
+import { AuthInterceptor } from './auth.interceptor';
 
 const routes = [
   { path: '', component: HomeComponent },
   { path: 'quiz', component: QuizComponent },
-  { path: 'questions/:quizId', component: QuestionListComponent }
+  { path: 'questions/:quizId', component: QuestionListComponent },
+  { path: 'register', component: RegisterComponent },
 ];
 
 @NgModule({
@@ -35,13 +39,15 @@ const routes = [
     QuestionComponent, QuestionsComponent, QuestionListComponent,
     NavComponent,
     QuizComponent, QuizzesComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
@@ -52,7 +58,12 @@ const routes = [
     MatSnackBarModule
   ],
   providers: [
-    ApiService
+    ApiService, AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
