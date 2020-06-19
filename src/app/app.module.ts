@@ -8,6 +8,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
@@ -27,11 +29,13 @@ import { RegisterComponent } from './register.component';
 import { LoginComponent } from './login.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { PlayComponent } from './play.component';
+import { PlayQuizComponent } from './playQuiz.component';
 
 const routes = [
   { path: '', component: HomeComponent },
   { path: 'quiz', component: QuizComponent },
   { path: 'play', component: PlayComponent },
+  { path: 'playQuiz/:quizId', component: PlayQuizComponent },
   { path: 'questions/:quizId', component: QuestionListComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent }
@@ -45,7 +49,7 @@ const routes = [
     QuizComponent, QuizzesComponent,
     HomeComponent,
     RegisterComponent, LoginComponent,
-    PlayComponent
+    PlayComponent, PlayQuizComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +64,9 @@ const routes = [
     MatCardModule,
     MatListModule,
     MatToolbarModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatExpansionModule,
+    MatRadioModule
   ],
   providers: [
     ApiService, AuthService,
