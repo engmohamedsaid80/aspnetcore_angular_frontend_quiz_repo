@@ -29,6 +29,10 @@ export class ApiService {
     return this.httpBE.get('http://localhost:61925/api/quizzes');
   }
 
+  getAllQuizzesFromBE() {
+    return this.httpBE.get('http://localhost:61925/api/quizzes/all');
+  }
+
   postQuestionToBE(question) {
     return this.httpBE.post('http://localhost:61925/api/questions', question);
   }

@@ -26,10 +26,12 @@ import { HomeComponent } from './home.component';
 import { RegisterComponent } from './register.component';
 import { LoginComponent } from './login.component';
 import { AuthInterceptor } from './auth.interceptor';
+import { PlayComponent } from './play.component';
 
 const routes = [
   { path: '', component: HomeComponent },
   { path: 'quiz', component: QuizComponent },
+  { path: 'play', component: PlayComponent },
   { path: 'questions/:quizId', component: QuestionListComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent }
@@ -42,7 +44,8 @@ const routes = [
     NavComponent,
     QuizComponent, QuizzesComponent,
     HomeComponent,
-    RegisterComponent, LoginComponent
+    RegisterComponent, LoginComponent,
+    PlayComponent
   ],
   imports: [
     BrowserModule,
